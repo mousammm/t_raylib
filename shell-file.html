@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Raylib Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #181818;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="my-game-canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+
+    <script>
+        var Module = {
+            // Point to your own canvas element
+            canvas: (function() {
+                return document.getElementById('my-game-canvas');
+            })(),
+
+            // route Emscripten's stdout/stderr to the browser console
+            print: function(text) { console.log(text); },
+            printErr: function(text) { console.error(text); }
+        };
+    </script>
+
+    {{{ SCRIPT }}}
+
+</body>
+</html>

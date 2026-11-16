@@ -2,17 +2,26 @@ CC = gcc
 
 CFLAGS = -I./include/
 
-# LDFLAGS  = -L./lib/ -l:libraylib.a
-# LDFLAGS += -lX11
-# LDFLAGS += -lm
-
-LDFLAGS  = -L./lib/ -lraylib
-LDFLAGS += -lm
+LDFLAGS  = -L./lib/ -l:libraylib.a
+LDFLAGS += -lX11 -lm
 
 EXE = exe
 
+web: main.c
+	emcc -o index.html main.c -Os -Wall \
+	    ./lib/libraylib.web.a \
+	    -I./include/ \
+	    -L./lib/ \
+	    -s USE_GLFW=3 \
+	    -s ASYNCIFY \
+	    --shell-file shell-file.html \
+	    -DPLATFORM_WEB
+
 main: main.c
 	$(CC) $(CFLAGS) -o $(EXE) main.c $(LDFLAGS)
+
+clean:
+	rm ./index.html ./index.js ./index.wasm ./$(EXE)
 
 run: 
 	./$(EXE)
