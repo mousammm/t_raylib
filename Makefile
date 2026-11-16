@@ -5,7 +5,12 @@ CFLAGS = -I./include/
 LDFLAGS  = -L./lib/ -l:libraylib.a
 LDFLAGS += -lX11 -lm
 
-EXE = exe
+EXE = native
+
+all: native web
+
+native: main.c
+	$(CC) $(CFLAGS) -o $(EXE) main.c $(LDFLAGS)
 
 web: main.c
 	emcc -o index.html main.c -Os -Wall \
@@ -15,10 +20,7 @@ web: main.c
 	    -s USE_GLFW=3 \
 	    -s ASYNCIFY \
 	    --shell-file shell-file.html \
-	    -DPLATFORM_WEB
-
-main: main.c
-	$(CC) $(CFLAGS) -o $(EXE) main.c $(LDFLAGS)
+	    -DPLATFORM_WEB \
 
 clean:
 	rm ./index.html ./index.js ./index.wasm ./$(EXE)

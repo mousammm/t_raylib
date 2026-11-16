@@ -1,12 +1,14 @@
 #include <raylib.h>
-#include <rlgl.h>
 #define RAYGUI_IMPLEMENTATION
 #include <raygui.h>
-#ifndef PLATFORM_WEB
-#include <style_jungle.h>
-#endif
+#undef RAYGUI_IMPLEMENTATION
 
+#include <rlgl.h>
+#include <style_jungle.h>
+
+#ifndef PLATFORM_WEB
 #define FONT_PATH "asset/fonts/iosevka-regular.ttf"
+#endif
 
 int main(void)
 {
@@ -23,7 +25,6 @@ int main(void)
         GuiSetFont(font);
     }
 #endif
-
 
     Camera3D camera = { 0 };
     camera.position   = (Vector3){ 0.0f, 6.0f, 12.0f };
@@ -71,7 +72,7 @@ int main(void)
         };
 
         BeginDrawing();
-        ClearBackground(GetColor(GuiGetStyle(DEFAULT, BACKGROUND_COLOR)));
+        ClearBackground(DARKGRAY);
 
         BeginMode3D(camera);
 

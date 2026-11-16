@@ -17,16 +17,10 @@ $ ./emsdk activate latest
 $ source ./emsdk_env.sh     # need do every time in new shell
 ```
 
-**SRC_TREE**
+**BUILD**
 
 ```console
-include     <- raylib headers
-lib         <- raylib (.a/.so/.web.a for x86_64)
-main.c      <- entry point
-
-# wasm generated stuff
-index.html
-index.js
-index.wasm
-shell-file.html  <- themplate
+$ make                          # build web and native
+$ ./native                      # native vestion
+$ python3 -m http.server 8080   # web version
 ```
