@@ -1,5 +1,12 @@
 # raylib (native + wasm) template for x86_64 linux
 
+**BUGS?**
+
+These bugs are encountered only when i was compiling for the web.
+
+- [ ] styles can't load in web it shows a black canvas
+- [ ] can load font, i have'nt tried to load any other resource is it happening only with font? idk
+
 **EMSDK**
 
 ```
@@ -12,60 +19,14 @@ $ source ./emsdk_env.sh     # need do every time in new shell
 
 **SRC_TREE**
 
-```
-include
-    raygui.h
-    raylib.h
-lib
-    libraylib.a
-    libraylib.so
-    libraylib.web.a
-main.c
-Makefile
+```console
+include     <- raylib headers
+lib         <- raylib (.a/.so/.web.a for x86_64)
+main.c      <- entry point
 
-README.md
-
+# wasm generated stuff
 index.html
 index.js
 index.wasm
-shell-file.html
-```
-
-**CONTROLS**
-
-```
-CONTROLS PROVIDED:
-  # Container/separators Controls
-    - WindowBox     --> StatusBar, Panel
-    - GroupBox      --> Line
-    - Line
-    - Panel         --> StatusBar
-    - ScrollPanel   --> StatusBar
-    - TabBar        --> Toggle, Button
-
-  # Basic Controls
-    - Label
-    - LabelButton   --> Label
-    - Button
-    - Toggle
-    - ToggleGroup   --> Toggle
-    - ToggleSlider
-    - CheckBox
-    - ComboBox
-    - DropdownBox
-    - TextBox
-    - ValueBox      --> TextBox
-    - Spinner       --> Button, ValueBox
-    - Slider
-    - SliderBar     --> Slider
-    - ProgressBar
-    - StatusBar
-    - DummyRec
-    - Grid
-
-  # Advance Controls
-    - ListView
-    - ColorPicker   --> ColorPanel, ColorBarHue
-    - MessageBox    --> Window, Label, Button
-    - TextInputBox  --> Window, Label, TextBox, Button
+shell-file.html  <- themplate
 ```
