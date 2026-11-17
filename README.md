@@ -4,8 +4,10 @@
 
 These bugs are encountered only when i was compiling for the web.
 
-- [ ] styles can't load in web it shows a black canvas
-- [ ] can load font, i have'nt tried to load any other resource is it happening only with font? idk
+**just need to enable some flags `-s ALLOW_MEMORY_GROWTH`**
+
+- [x] styles can't load in web it shows a black canvas
+- [x] can load font, i have'nt tried to load any other resource is it happening only with font? idk
 
 **EMSDK**
 

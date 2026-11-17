@@ -19,8 +19,11 @@ web: main.c
 	    -L./lib/ \
 	    -s USE_GLFW=3 \
 	    -s ASYNCIFY \
+		-s ASSERTIONS \
+		-s ALLOW_MEMORY_GROWTH \
 	    --shell-file shell-file.html \
 	    -DPLATFORM_WEB \
+		--preload-file asset@asset \
 
 clean:
 	rm ./index.html ./index.js ./index.wasm ./$(EXE)
