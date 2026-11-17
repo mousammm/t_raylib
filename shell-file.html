@@ -2,31 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Raylib Game</title>
+    <meta name="viewport" content="width=1280, user-scalable=no">
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
             background: #181818;
+            color: #ffffff;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            gap: 12px;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Raylib on web!</h1>
+    </header>
 
     <canvas id="my-game-canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
 
     <script>
         var Module = {
-            // Point to your own canvas element
             canvas: (function() {
                 return document.getElementById('my-game-canvas');
             })(),
-
-            // route Emscripten's stdout/stderr to the browser console
             print: function(text) { console.log(text); },
             printErr: function(text) { console.error(text); }
         };
