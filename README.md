@@ -1,13 +1,8 @@
 # raylib (native + wasm) template for x86_64 linux
 
-**BUGS?**
+## BUILD
 
-These bugs are encountered only when i was compiling for the web.
-
-**just need to enable some flags `-s ALLOW_MEMORY_GROWTH`**
-
-- [x] styles can't load in web it shows a black canvas
-- [x] can load font, i have'nt tried to load any other resource is it happening only with font? idk
+**Build Essential**
 
 **EMSDK**
 

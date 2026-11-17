@@ -2,27 +2,17 @@
 #define RAYGUI_IMPLEMENTATION
 #include <raygui.h>
 #undef RAYGUI_IMPLEMENTATION
-
+        
 #include <raymath.h>
 #include <rlgl.h>
-// #include <style_jungle.h>
-// #include <style_dark.h>
-#define FONT_PATH  "./asset/fonts/iosevka-regular.ttf"
-#define STYLE_PATH "./asset/styles/style_dark.rgs"
+#include <style_dark.h>
 
 int main(void) {
     const int screenWidth = 800;
     const int screenHeight = 800;
-    InitWindow(screenWidth, screenHeight, "Raylib Demo");
-// #ifndef PLATFORM_WEB
-#if 0
+    InitWindow(screenWidth, screenHeight, "Raylib wasm demo!");
     GuiLoadStyleDefault();
-    // GuiLoadStyleJungle();
     GuiLoadStyleDark();
-#endif
-    GuiLoadStyleDefault();
-    GuiLoadStyle(STYLE_PATH);
-    Font cfont = LoadFont(FONT_PATH);
 
     Camera3D camera = { 0 };
     camera.position = (Vector3){ 0.0f, 3.0f, 6.0f };
@@ -95,7 +85,7 @@ int main(void) {
                 rlPopMatrix();
             EndMode3D();
 
-            DrawTextEx(cfont, "This is a custom font", (Vector2){100,100}, cfont.baseSize, 1, WHITE);
+            DrawText("Hello world", 300, 100, 20, WHITE);
 
             if (showWindow) {
                 if (GuiWindowBox(panelBounds, "Scene Settings")) {
