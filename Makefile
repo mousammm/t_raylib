@@ -29,7 +29,7 @@ web: main.c
 	emcc -o index.html main.c $(CFEMCC)
 
 clean:
-	rm ./index.html ./index.js ./index.wasm ./$(EXE)
+	rm ./index.html ./index.js ./index.wasm ./index.data ./$(EXE)
 
 run: 
 	./$(EXE)
